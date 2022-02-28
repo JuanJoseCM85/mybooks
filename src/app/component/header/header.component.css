@@ -1,0 +1,14 @@
+#logo {
+  width: 60px;
+}
+
+.btn-outline-modificado {
+  color: #860f76;
+  border-color: #37013b;
+}
+
+.btn-outline-modificado:hover {
+  color: #fff;
+  background-color: #860f76;
+  border-color: #ffffff;
+}
