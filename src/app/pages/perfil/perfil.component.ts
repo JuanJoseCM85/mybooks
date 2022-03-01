@@ -21,9 +21,12 @@ export class PerfilComponent implements OnInit {
     //opcion1 del reto
     //console.log(this.miUsuario.nombre);
     //opcion2
-    this.miUsuario.nombre = inputNombre.value;
-    this.miUsuario.apellidos = inputApellidos.value;
-    this.miUsuario.correo = inputEmail;
+    if(inputNombre.value != "")
+      this.miUsuario.nombre = inputNombre.value;
+    if(inputApellidos.value != "")
+      this.miUsuario.apellidos = inputApellidos.value;
+    if(inputEmail != "")
+      this.miUsuario.correo = inputEmail;
     console.log(inputUrl.value);
     
     if(inputUrl.value != "")
