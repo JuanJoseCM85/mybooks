@@ -1,0 +1,59 @@
+<div class="container d-flex flex-row justify-content-center align-items-center mt-3">
+    <div class="col-sm-6" >
+        <div class="card d-flex flex-column justify-content-center align-items-center mb-4" id="datosUsuario">
+            <img src="../../../assets/icons/fb.png" alt="" class="imagenPerfil" id="imagenPerfil">
+            <div class="info d-flex flex-row justify-content-center align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-lines-fill icon-user" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                  </svg><h4> {{miUsuario.nombre}} {{miUsuario.apellidos}}</h4>
+            </div>
+            <div class="d-flex flex-colum justify-content-center align-items-center infoUsuario">
+                <div class="informacion">
+                    <form class="row d-flex flex-colum justify-content-center align-items-center" >
+                        <div class="col-md-9 mb-1 ">
+                          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="inputN" aria-describedby="emailHelp" value="{{miUsuario.nombre}}">
+                        </div>
+                        <div class="col-md-9 mb-1">
+                          <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+                          <input type="text" class="form-control" id="inputApell" value="{{miUsuario.apellidos}}">
+                        </div>
+                        <div class=" col-md-9 mb-2">
+                            <label for="exampleInputPassword1" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="mail" value="{{miUsuario.correo}}">
+                          </div>
+                    </form>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" >
+        <div class="container d-flex flex-column justify-content-center align-items-center mb-4" id="formulario">
+            <div class="mb-4">
+                <h3> Formulario edición datos personales</h3>
+            </div>
+            
+            <form  class="col-md-9">
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" #inputNombre>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Apellidos" id="inputApelli" #inputApellidos>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="inputemail" placeholder="Email" #inputEmail>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Url imagen perfil" id="inputUrl" #inputUrl>
+                </div>
+                <div class="mb-3">
+                      <input type="password" class="form-control" id="inputPassword" placeholder="Password" #inputPassowrd>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="enviarDatos(inputNombre,inputApellidos,inputEmail.value)">Editar perfil</button>
+            </form>
+        </div>
+        
+
+        
+    </div>
+</div>

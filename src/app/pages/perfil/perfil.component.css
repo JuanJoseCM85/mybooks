@@ -1,0 +1,17 @@
+.imagenPerfil {
+  width: 250px;
+}
+.icon-user {
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+#datosUsuario {
+  height: 550px;
+  border: 1px solid lightgrey;
+}
+#formulario {
+  height: 550px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
