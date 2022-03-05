@@ -9,3 +9,16 @@
 .claseAzul {
   background-color: blue;
 }
+
+#icono-eliminar {
+  position: absolute;
+  width: 25px;
+  top: 20px;
+  right: 75px;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+#icono-eliminar:hover {
+  cursor: pointer;
+}

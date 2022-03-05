@@ -1,10 +1,17 @@
 
 <div class="container mt-5 mb-5">
+
+  <form class="d-flex mb-4 col-md-6">
+    <input class="form-control me-2" type="search" placeholder="Buscar un libro" aria-label="Search" #inputLibroABuscar>
+    <button class="btn btn-outline-success" type="button" (click)="buscar(inputLibroABuscar)">Buscar</button>
+  </form>
+
     <div *ngIf="arrayLibros.length === 0"> No hay libros </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" *ngFor="let libro of arrayLibros; let c = even">
           <div class="card d-flex flex-column justify-content-center align-items-center">
-            <img src="{{libro.photo}}" class="card-img-top" alt="...">
+            <img src="../../../assets/icons/eliminar.png" class="icono-eliminar" id="icono-eliminar" (click)="eliminarLibro(libro.id_libro)">
+            <img src="{{libro.photo}}" class="card-img-top" alt="..." id="imagen-libro">
             <div class="card-body">
               <h5 class="card-title">{{libro.titulo}} </h5>
               <p class="card-text">Autor: {{libro.autor}} - {{libro.id_libro | referencia}}</p>
@@ -19,36 +26,73 @@
         
         
       </div> 
-      <div class="container d-flex flex-column justify-content-center align-items-center mb-4" id="formulario">
-        <div class="mb-4">
-            <h3> Formulario introducción nuevo libro</h3>
-        </div>
-        <form  class="col-md-12">
-            <div class="mb-3 col-md-6">
-              <input type="text" class="form-control" id="inputIdLibro" placeholder="Id Libro" #inputIdLibro>
-            </div>
-            <div class="mb-3 col-md-6">
-              <input type="text" class="form-control" placeholder="Id Usuario" id="idUsuario" #inputIdUsuario>
-            </div>
-            <div class="mb-3 col-md-6">
-                <input type="text" class="form-control" id="inputTitulo" placeholder="Titulo" #inputTitulo>
-            </div>
-            <div class="mb-3 col-md-6">
-                <input type="text" class="form-control" placeholder="Tipo de Libro" id="inputTipo" #inputTipo>
-            </div>
-            <div class="mb-3 col-md-6">
-                  <input type="text" class="form-control" id="inputAutor" placeholder="Autor" #inputAutor>
-            </div>
-            <div class="mb-3 col-md-6">
-                <input type="text" class="form-control" id="inputPrecio" placeholder="Precio" #inputPrecio>
+      <div class="container d-flex flex-row justify-content-between align-items-center mb-4 mt-4" id="formulario">
+        <div class="introLibro" id="introLibro">
+          <form  class="col-md-12">
+            <div class="mb-4">
+              <h3> Formulario introducción nuevo libro</h3>
           </div>
-          <div class="mb-3 col-md-6">
-            <input type="text" class="form-control" id="inputPhoto" placeholder="Url Fotografía" #inputPhoto>
+              <div class="mb-3 col-md-12">
+                <input type="text" class="form-control" id="inputIdLibro" placeholder="Id Libro" #inputIdLibro>
+              </div>
+              <div class="mb-3 col-md-12">
+                <input type="text" class="form-control" placeholder="Id Usuario" id="idUsuario" #inputIdUsuario>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" id="inputTitulo" placeholder="Titulo" #inputTitulo>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" placeholder="Tipo de Libro" id="inputTipo" #inputTipo>
+              </div>
+              <div class="mb-3 col-md-12">
+                    <input type="text" class="form-control" id="inputAutor" placeholder="Autor" #inputAutor>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" id="inputPrecio" placeholder="Precio" #inputPrecio>
+            </div>
+            <div class="mb-3 col-md-12">
+              <input type="text" class="form-control" id="inputPhoto" placeholder="Url Fotografía" #inputPhoto>
+          </div>
+              <button type="button" class="btn btn-primary" (click)="enviarLibro(inputIdLibro,inputIdUsuario,inputTitulo,inputTipo,inputAutor,
+                                                                      inputPrecio,inputPhoto)">Añadir libro</button>
+          </form>
         </div>
-            <button type="button" class="btn btn-primary" (click)="enviarLibro(inputIdLibro,inputIdUsuario,inputTitulo,inputTipo,inputAutor,
-                                                                    inputPrecio,inputPhoto)">Añadir libro</button>
-        </form>
+        <div id="editLibro" class="editlibro">
+          <form  class="col-md-12">
+            <div class="mb-4">
+              <h3> Formulario para editar un libro.</h3>
+          </div>
+              <div class="mb-3 col-md-12">
+                <input type="text" class="form-control" id="inputIdLibro" placeholder="Id Libro" #inputIdLibro2>
+              </div>
+              <div class="mb-3 col-md-12">
+                <input type="text" class="form-control" placeholder="Id Usuario" id="idUsuario" #inputIdUsuario2>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" id="inputTitulo" placeholder="Titulo" #inputTitulo2>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" placeholder="Tipo de Libro" id="inputTipo" #inputTipo2>
+              </div>
+              <div class="mb-3 col-md-12">
+                    <input type="text" class="form-control" id="inputAutor" placeholder="Autor" #inputAutor2>
+              </div>
+              <div class="mb-3 col-md-12">
+                  <input type="text" class="form-control" id="inputPrecio" placeholder="Precio" #inputPrecio2>
+            </div>
+            <div class="mb-3 col-md-12">
+              <input type="text" class="form-control" id="inputPhoto" placeholder="Url Fotografía" #inputPhoto2>
+          </div>
+              <button type="button" class="btn btn-primary" (click)="editarLibro(inputIdLibro2,inputIdUsuario2,inputTitulo2,inputTipo2,inputAutor2,
+                                                                      inputPrecio2,inputPhoto2)">Editar Libro</button>
+          </form>
+        </div>
+        
+
+        
     </div>
+
+    
     
 </div>
 
