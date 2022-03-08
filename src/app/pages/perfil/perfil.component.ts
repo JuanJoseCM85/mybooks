@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
+import { ServicioUsuarioService } from 'src/app/shared/servicio-usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +11,7 @@ export class PerfilComponent implements OnInit {
 
   public miUsuario: Usuario;
 
-  constructor() { 
+  constructor(public servicioUsuario:ServicioUsuarioService) { 
     this.miUsuario = new Usuario(1,"Juanjo","Cabrera Maldonado","email@gmail.com","../../../assets/avatar.jpg","password");
   }
 

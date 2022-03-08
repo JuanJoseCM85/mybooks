@@ -11,6 +11,9 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { LibrosComponent } from './pages/libros/libros.component';
 import { ReferenciaPipe } from './pipes/referencia.pipe';
+import { LoginComponent } from './pages/login/login.component';
+import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,14 @@ import { ReferenciaPipe } from './pipes/referencia.pipe';
     RegistroComponent,
     PerfilComponent,
     LibrosComponent,
-    ReferenciaPipe
+    ReferenciaPipe,
+    LoginComponent,
+    FormularioLoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

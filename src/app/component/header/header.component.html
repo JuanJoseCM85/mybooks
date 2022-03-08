@@ -10,14 +10,17 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink="">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="app-registro">Registro</a>
+              <li class="nav-item" [ngStyle]="{display: (this.servicioUsuario.logueado === false ? 'none':'block')}">
+                <a class="nav-link" routerLink="app-perfil" >Perfil</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="app-perfil">Perfil</a>
-              </li>
-              <li class="nav-item">
+              <li class="nav-item" [ngStyle]="{display: (this.servicioUsuario.logueado === false ? 'none':'block')}">
                 <a class="nav-link" routerLink="app-libros">Libros</a>
+              </li>
+              <li class="nav-item" [ngStyle]="{display: (this.servicioUsuario.logueado === true ? 'none':'block')}">
+                <a class="nav-link" routerLink="app-login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="app-registro" [ngStyle]="{display: (this.servicioUsuario.logueado === true ? 'none':'block')}">Registro</a>
               </li>
           </ul>
             <form class="d-flex">
