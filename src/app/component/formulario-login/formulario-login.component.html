@@ -1,16 +1,21 @@
 <div class="container mt-5 mb-5 tamano">
     <h2>LOGIN</h2>
-    <form class="row g-3">
+    <form #loginForm="ngForm" class="row g-3" (ngSubmit)="onSubmit(loginForm)">
         <div class="col-md-4">
           <label for="validationDefaultUsername" class="form-label">Email</label>
           <div class="input-group">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
-            <input type="text" class="form-control" id="inputEmail"  aria-describedby="inputGroupPrepend2" #inputEmail required>
+            <input type="text" class="form-control" id="inputEmail" name="correo" aria-describedby="inputGroupPrepend2" #inputEmail [(ngModel)]="usuario.correo" #name="ngModel" 
+            [ngClass]="{ 'is-invalid': loginForm.submitted && name.invalid }" required>
+            <div class="invalid-feedback" *ngIf="loginForm.submitted && name.invalid">
+                <p ¨*ngIf="correo.errors.required">El correo es obligatorio</p>
+
+            </div>
           </div>
         </div>
         <div class="col-md-3">
             <label for="validationDefault05" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="inputContrasena1" #inputContrasena1 required>
+            <input type="password" name="password" [(ngModel)]="usuario.password" class="form-control" id="inputContrasena1" #inputContrasena1 required>
           </div>
         <div class="col-12">
           <button class="btn btn-primary" type="button" (click)="loginUsuario2(inputEmail.value,inputContrasena1.value)">Login</button>

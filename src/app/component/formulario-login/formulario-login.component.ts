@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
 import { ServicioUsuarioService } from 'src/app/shared/servicio-usuario.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-login',
@@ -34,6 +35,11 @@ export class FormularioLoginComponent implements OnInit {
       
     }
 
+  }
+
+  onSubmit(form:NgForm){
+    console.log(form.value);
+    console.log(this.usuario);
   }
   // public loginUsuario(inputEmail,inputContrasena1){
 

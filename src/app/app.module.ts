@@ -14,6 +14,7 @@ import { ReferenciaPipe } from './pipes/referencia.pipe';
 import { LoginComponent } from './pages/login/login.component';
 import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    //ToastrModule.forRoot({timeOut: 3000})
   ],
   providers: [],
   bootstrap: [AppComponent]
